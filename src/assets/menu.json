@@ -1,0 +1,17 @@
+[
+    {
+       "main_menu_name" : "해커톤",
+        "sub_menu_name1" : "해커톤소개",
+        "sub_menu_name2": "해커톤사진"
+    },
+    {
+        "main_menu_name": "WHO",
+        "sub_menu_name1": "who소개",
+        "sub_menu_name2": "WHO사진"
+    },
+    {
+        "main_menu_name": "신청하기",
+        "sub_menu_name1": "신입생신청서작성",
+        "sub_menu_name2": "해커톤신청서작성"
+    }
+]
