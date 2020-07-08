@@ -1,8 +1,7 @@
 <template>
- 
-  <div>
+  <div class = "body">
     <div class="header">
-      <app-header></app-header> 
+      <app-header></app-header>
     </div>
    <div class="mid">
      <div class = "mid_content">
@@ -12,8 +11,8 @@
     <div class="footer">
       <app-footer></app-footer>
     </div>
+    
   </div>
-        
 </template>
 
 <script>
@@ -23,14 +22,13 @@ import IntroWho from "./mainpage/Footer.vue"
 
 
   export default {
+    name: 'MainPage',
     components:{
       'app-header' : AppHeader,
       'app-mid' : AppMid,
       'app-footer' : IntroWho,
       
     },
-    name: 'HelloWorld',
-   
     data: () => ({
        
       ecosystem: [

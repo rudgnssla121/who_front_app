@@ -5,7 +5,7 @@
         </div>
         <div class="menu_bar">
             <menu-bar></menu-bar>
-            <div class =  "first_loginform">
+            <div class =  "first_loginform" >
                 <login-btn></login-btn>
         </div>
     </div>

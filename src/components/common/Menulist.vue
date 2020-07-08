@@ -10,7 +10,6 @@
           v-on="on"
           max-width = "100px"
           min-width = "100px"
-          float = "left"
         >
         {{title}}
         </v-btn>
@@ -20,9 +19,9 @@
         <v-list-item
           v-for="(item, index) in subtitle"
            :key="index"
-          @click="test"
+          @click="RouterName(item.url)"
         >
-          <v-list-item-title>{{ item }}</v-list-item-title>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -34,8 +33,8 @@
 export default {
     props:['title', 'subtitle'],
      methods:{
-      test : function(){
-        console.log("test");
+      RouterName ( targetName) {
+      this.$router.push(targetName)
       }
     },
   data: () => ({

@@ -1,5 +1,6 @@
 <template>
-<div>
+<div class = "loginform-body">
+    <who-logo></who-logo>
     <form action="">
         <label>id :</label>
         <input border="black" type="text" name="name" value="아이디 입력"><br>
@@ -56,6 +57,7 @@
 
 
 <script>
+import WhoLogo from "../common/Whologo.vue"
 //   import { required, email, max } from 'vee-validate/dist/rules'
 //   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
 
@@ -76,6 +78,9 @@
 //     message: 'Email must be valid',
 //   })
 export default {
+  components :{
+    'who-logo' : WhoLogo
+  }
 //     components: {
 //       ValidationProvider,
 //       ValidationObserver,

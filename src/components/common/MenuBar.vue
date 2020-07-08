@@ -17,22 +17,28 @@ export default {
                 {
                     main : "aaa",
                     sublist : [
-                        "aa1",
-                        "aaa2"
+                        {title:"게시판",url:"/noticeboard"},
+                        {title:"aaa2",url:"aaa2"},
+                        {title:"aaa3",url:"aaa3"},
+                           
                     ]
                 },
                 {
-                    main : "bbbb",
+                    main : "bbb",
                     sublist : [
-                        "bbb1",
-                        "bbb2"
+                        {title:"게시판",url:"/noticeboard"},
+                        {title:"bbb2",url:"bbb2"},
+                        {title:"bbb3",url:"bbb3"},
+                           
                     ]
                 },
                 {
-                    main : "ccc",
-                    sublist : [
-                        "ccc1",
-                        "ccc2"
+                   main : "ccc",
+                   sublist : [
+                        {title:"게시판",url:"/noticeboard"},
+                        {title:"ccc2",url:"ccc2"},
+                        {title:"ccc3",url:"ccc3"},
+                           
                     ]
                 }
             ]
