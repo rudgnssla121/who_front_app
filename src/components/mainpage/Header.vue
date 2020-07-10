@@ -5,9 +5,14 @@
         </div>
         <div class="menu_bar">
             <menu-bar></menu-bar>
-            <div class =  "first_loginform" >
-                <login-btn></login-btn>
-        </div>
+            <div class = "btn">
+                <div class =  "loginbtn" >
+                    <login-btn></login-btn>
+                </div>
+                <div class = "signupbtn">
+                    <signup-btn></signup-btn>
+                </div>
+            </div>
     </div>
   </div>
 </template>
@@ -17,12 +22,13 @@
 import WhoLogo from "../common/Whologo.vue"
 import MenuBar from "../common/MenuBar.vue"
 import LoginBtn from "../common/LoginBtn.vue"
+import SignUpBtn from "../common/SignUpBtn.vue"
 export default {
     components:{
          'who-logo' : WhoLogo,
          'menu-bar' : MenuBar,
          'login-btn' : LoginBtn,
-         
+         'signup-btn' : SignUpBtn,
     }
     
 }
@@ -42,12 +48,20 @@ export default {
     float: left;
     width:60%;
 }
-.first_loginform{
+.btn{
      position: absolute;;
      top:10%;
      right: 10%;
     float: left;
     margin-top : 15px;
     margin-left : 15px;
+}
+.loginbtn{
+    float :left;
+    margin-right: "30px";
+}
+.signupbtn{
+    margin-left: "15px";
+    float: left;
 }
 </style>

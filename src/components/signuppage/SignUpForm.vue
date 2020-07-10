@@ -1,10 +1,10 @@
 <template>
 
-   <div class = "loginform">
+   <div class = "signupform">
     <div class = "who-logo">
       <who-logo></who-logo>
     </div>
-    <div class = "loginbody">
+    <div class = "signupbody">
    <form>
    <v-col
           cols="12"
@@ -24,9 +24,9 @@
       :error-messages="passwordErrors"
       label="PassWord"
       required
-      :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+      :append-icon="show3 ? 'mdi-eye' : 'mdi-eye-off'"
       :rules="[rules.required, rules.min]"
-      :type="show3 ? 'text' : 'password'"
+      :type="show ? 'text' : 'password'"
        hint="At least 8 characters"
        value=""
       class="input-group--focused"
@@ -34,9 +34,26 @@
       @input="$v.password.$touch()"
       @blur="$v.password.$touch()"
     ></v-text-field>
-    
+    <v-text-field
+      v-model="email"
+      :error-messages="emailErrors"
+      label="E-mail"
+      required
+      @input="$v.email.$touch()"
+      @blur="$v.email.$touch()"
+    ></v-text-field>
+   
+    <v-checkbox
+      v-model="checkbox"
+      :error-messages="checkboxErrors"
+      label="Do you agree?"
+      required
+      @change="$v.checkbox.$touch()"
+      @blur="$v.checkbox.$touch()"
+    ></v-checkbox>
    </v-col>
-    <v-btn class="mr-4" @click="submit">로그인</v-btn>
+    <v-btn class="mr-4" @click="submit">submit</v-btn>
+    <v-btn @click="clear">clear</v-btn>
   </form>
   </div>
   </div> 
@@ -46,7 +63,7 @@
 <script>
 import WhoLogo from "../common/Whologo.vue"
 import { validationMixin } from 'vuelidate'
-import { required, maxLength} from 'vuelidate/lib/validators'
+import { required, maxLength, email } from 'vuelidate/lib/validators'
 
 
 export default {
@@ -55,11 +72,16 @@ export default {
     validations: {
       name: { required, maxLength: maxLength(10) },
       password: { required, maxLength: maxLength(10) },
+      email: { required, email },
 
-      
+      checkbox: {
+        checked (val) {
+          return val
+        },
+      },
     },
 
-    name : "LoginForm",
+    name : "SignUpForm",
     components: {
       'who-logo' : WhoLogo,
     },
@@ -73,10 +95,16 @@ export default {
           min: v => v.length >= 8 || 'Min 8 characters',
           emailMatch: () => ('The email and password you entered don\'t match'),
         },
+      checkbox: false,
     }),
 
     computed: {
-      
+      checkboxErrors () {
+        const errors = []
+        if (!this.$v.checkbox.$dirty) return errors
+        !this.$v.checkbox.checked && errors.push('You must agree to continue!')
+        return errors
+      },
       nameErrors () {
         const errors = []
         if (!this.$v.name.$dirty) return errors
@@ -91,7 +119,13 @@ export default {
         !this.$v.password.required && errors.push('password is required.')
         return errors
       },
-      
+      emailErrors () {
+        const errors = []
+        if (!this.$v.email.$dirty) return errors
+        !this.$v.email.email && errors.push('Must be valid e-mail')
+        !this.$v.email.required && errors.push('E-mail is required')
+        return errors
+      },
     },
 
     methods: {
@@ -102,6 +136,8 @@ export default {
         this.$v.$reset()
         this.name = ''
         this.email = ''
+        this.select = null
+        this.checkbox = false
       },
     },
   
@@ -110,16 +146,16 @@ export default {
 </script>
 
 <style scoped>
-.loginform{
+.signupform{
   width: 100%;
   height: 100%;
 }
 .who-logo{
   margin :35px;
 }
-.loginbody{
+.signupbody{
   position:relative;
-  top:15%;
+  top:10%;
   left:30%;
 }
 </style>

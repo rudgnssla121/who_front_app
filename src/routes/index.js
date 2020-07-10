@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import Main from "../components/HelloWorld.vue";
 import NoticeForm from "../components/noticeboard/NoticeForm.vue"
 import LoginForm from "../components/loginpage/LoginForm.vue"
+import SignUpForm from "../components/signuppage/SignUpForm.vue"
+
 
 Vue.use(VueRouter);
 
@@ -24,6 +26,11 @@ Vue.use(VueRouter);
        path: "/loginform",
        component: LoginForm,
        name: "LoginForm",
+     },
+     {
+       path: "/signupform",
+       component: SignUpForm,
+       name: "SignUpForm",
      },
    ],
  });

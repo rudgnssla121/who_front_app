@@ -1,6 +1,6 @@
 <template>
-  <div class="loginbtn">
-        <v-btn depressed small color="primary" @click="RouterName(loginform)">로그인</v-btn>
+  <div class="signupbtn">
+        <v-btn depressed small color="primary" @click="RouterName(Signupform)">회원가입</v-btn>
       </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   data : function(){
     return {
-      loginform : 'loginform'
+      Signupform : 'signupform'
     }
   },
   methods:{
@@ -20,7 +20,5 @@ export default {
 </script>
 
 <style>
-.loginbtn{
-  margin-right: 5px;
-}
+
 </style>
