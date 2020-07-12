@@ -4,16 +4,16 @@
           <who-logo></who-logo>
         </div>
         <div class="menu_bar">
-            <menu-bar></menu-bar>
-            <div class = "btn">
-                <div class =  "loginbtn" >
-                    <login-btn></login-btn>
-                </div>
-                <div class = "signupbtn">
-                    <signup-btn></signup-btn>
-                </div>
+            <menu-bar></menu-bar>  
+        </div>
+        <div class = "buttons">
+            <div class =  "loginbtn" >
+                <login-btn></login-btn>
             </div>
-    </div>
+            <div class = "signupbtn">
+                <signup-btn></signup-btn>
+            </div>
+            </div>
   </div>
 </template>
 
@@ -34,34 +34,35 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .header{
-    margin : 30px;
+    position: absolute;
+    margin : 15px;
+    width: 100%;
+    top: 0%;
+    height: 15%;
 }
 .first_logo{
-    margin : 5px;
+    margin-left: 50px;
+    margin-top: 30px;
     float: left;
 }
 .menu_bar{
-    position: absolute;;
-    left:40%;
+    margin-top: 35px;
+    margin-left: 200px;
     float: left;
-    width:60%;
 }
-.btn{
-     position: absolute;;
-     top:10%;
-     right: 10%;
+.buttons{
     float: left;
-    margin-top : 15px;
-    margin-left : 15px;
+    right: 13%;
+    margin-top: 40px;
+    margin-left: 170px;
 }
 .loginbtn{
     float :left;
-    margin-right: "30px";
+    margin-right : 8px;
 }
 .signupbtn{
-    margin-left: "15px";
     float: left;
 }
 </style>

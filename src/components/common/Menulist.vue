@@ -8,8 +8,8 @@
           dark
           v-bind="attrs"
           v-on="on"
-          max-width = "100px"
-          min-width = "100px"
+          max-width = "200px"
+          min-width = "160px"
         >
         {{title}}
         </v-btn>
@@ -45,7 +45,5 @@ export default {
 </script>
 
 <style>
-.text_center{
-    position:absolute;
-}
+
 </style>

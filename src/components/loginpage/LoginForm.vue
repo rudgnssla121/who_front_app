@@ -26,7 +26,7 @@
       required
       :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
       :rules="[rules.required, rules.min]"
-      :type="show3 ? 'text' : 'password'"
+      :type="show ? 'text' : 'password'"
        hint="At least 8 characters"
        value=""
       class="input-group--focused"
@@ -39,6 +39,7 @@
     <v-btn class="mr-4" @click="submit">로그인</v-btn>
   </form>
   </div>
+  <login-footer></login-footer>
   </div> 
 </template>
 
@@ -47,6 +48,7 @@
 import WhoLogo from "../common/Whologo.vue"
 import { validationMixin } from 'vuelidate'
 import { required, maxLength} from 'vuelidate/lib/validators'
+import LoginFooter from "../mainpage/Footer.vue"
 
 
 export default {
@@ -62,6 +64,7 @@ export default {
     name : "LoginForm",
     components: {
       'who-logo' : WhoLogo,
+      'login-footer' : LoginFooter
     },
     data: () => ({
       name: '',

@@ -15,29 +15,28 @@ export default {
             test : "test",
             menulist : [
                 {
-                    main : "aaa",
+                    main : "소개",
                     sublist : [
-                        {title:"게시판",url:"/noticeboard"},
-                        {title:"aaa2",url:"aaa2"},
-                        {title:"aaa3",url:"aaa3"},
+                        {title:"동아리소개",url:"/intro"},
+                        {title:"사진",url:"aaa3"},
                            
                     ]
                 },
                 {
-                    main : "bbb",
+                    main : "해커톤",
                     sublist : [
-                        {title:"게시판",url:"/noticeboard"},
-                        {title:"bbb2",url:"bbb2"},
-                        {title:"bbb3",url:"bbb3"},
+                        {title:"공지사항",url:"/noticeboard"},
+                        {title:"사진",url:"bbb2"},
+                        {title:"참가신청",url:"bbb3"},
                            
                     ]
                 },
                 {
-                   main : "ccc",
+                   main : "공지 및 신입생신청",
                    sublist : [
-                        {title:"게시판",url:"/noticeboard"},
-                        {title:"ccc2",url:"ccc2"},
-                        {title:"ccc3",url:"ccc3"},
+                        {title:"공지사항",url:"/noticeboard"},
+                        {title:"신입생신청",url:"ccc2"},
+                        {title:"Q&A",url:"ccc3"},
                            
                     ]
                 }
@@ -48,11 +47,6 @@ export default {
 </script>
 
 <style>
-.menu-bar{
-    margin-top : 15px;
-    margin-left: 15px;
-    float: left;
-}
 .menulist{
     margin-left: 15px;
     float: left;

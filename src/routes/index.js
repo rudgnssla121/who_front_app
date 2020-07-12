@@ -4,7 +4,8 @@ import Main from "../components/HelloWorld.vue";
 import NoticeForm from "../components/noticeboard/NoticeForm.vue"
 import LoginForm from "../components/loginpage/LoginForm.vue"
 import SignUpForm from "../components/signuppage/SignUpForm.vue"
-
+import IntroSentense from "../components/introducewho/IntroduceWho.vue"
+import NoticeContent from "../components/noticeboard/NoticeContent.vue"
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,11 @@ Vue.use(VueRouter);
        name: "NoticeBoard",
      },
      {
+       path: "/noticeboard/noticecontent",
+       component: NoticeContent,
+       name: "NoticeContent",
+     },
+     {
        path: "/loginform",
        component: LoginForm,
        name: "LoginForm",
@@ -31,6 +37,11 @@ Vue.use(VueRouter);
        path: "/signupform",
        component: SignUpForm,
        name: "SignUpForm",
+     },
+     {
+       path: "/intro",
+       component: IntroSentense,
+       name: "IntroSentense",
      },
    ],
  });

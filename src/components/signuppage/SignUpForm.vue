@@ -56,6 +56,7 @@
     <v-btn @click="clear">clear</v-btn>
   </form>
   </div>
+  <signup-footer></signup-footer>
   </div> 
 </template>
 
@@ -64,6 +65,7 @@
 import WhoLogo from "../common/Whologo.vue"
 import { validationMixin } from 'vuelidate'
 import { required, maxLength, email } from 'vuelidate/lib/validators'
+import SignupFooter from "../mainpage/Footer.vue"
 
 
 export default {
@@ -84,6 +86,7 @@ export default {
     name : "SignUpForm",
     components: {
       'who-logo' : WhoLogo,
+      'signup-footer' : SignupFooter
     },
     data: () => ({
       name: '',

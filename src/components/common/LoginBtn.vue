@@ -20,7 +20,5 @@ export default {
 </script>
 
 <style>
-.loginbtn{
-  margin-right: 5px;
-}
+
 </style>

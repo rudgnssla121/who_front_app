@@ -17,5 +17,8 @@ export default {
   top:50%;
   left:46%;
   margin:-50px 0 0 -50px;
+  width: 100%;
+  float: left;
+  height: 350px;
 }
 </style>

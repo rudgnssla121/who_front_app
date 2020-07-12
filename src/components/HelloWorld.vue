@@ -3,11 +3,9 @@
     <div class="header">
       <app-header></app-header>
     </div>
-   <div class="mid">
      <div class = "mid_content">
        <app-mid></app-mid>
      </div>
-   </div>
     <div class="footer">
       <app-footer></app-footer>
     </div>
@@ -85,26 +83,7 @@ import IntroWho from "./mainpage/Footer.vue"
   }
 </script>
 
-<style scoped>
-.header{
-  width: 100%;
-  height: 30%;
-}
-
-.mid{
-
-  width: 100%;
-  height: 50%;
-  float: left;
-}
+<style>
 
 
-.footer{
-  position: absolute;
-  width: 100%;
-  height: 20%;
-  left:0;
-  bottom:0px;
-  float: left;
-}
 </style>
