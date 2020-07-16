@@ -60,6 +60,6 @@ export default {
   width: 100%;
   bottom:0%;
   float: left;
-  height: 15%;
+  height: 10%;
 }
 </style>

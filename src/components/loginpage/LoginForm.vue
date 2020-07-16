@@ -1,9 +1,6 @@
 <template>
 
    <div class = "loginform">
-    <div class = "who-logo">
-      <who-logo></who-logo>
-    </div>
     <div class = "loginbody">
    <form>
    <v-col
@@ -45,7 +42,6 @@
 
 
 <script>
-import WhoLogo from "../common/Whologo.vue"
 import { validationMixin } from 'vuelidate'
 import { required, maxLength} from 'vuelidate/lib/validators'
 import LoginFooter from "../mainpage/Footer.vue"
@@ -63,7 +59,6 @@ export default {
 
     name : "LoginForm",
     components: {
-      'who-logo' : WhoLogo,
       'login-footer' : LoginFooter
     },
     data: () => ({
@@ -117,9 +112,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.who-logo{
-  margin :35px;
-}
+
 .loginbody{
   position:relative;
   top:15%;

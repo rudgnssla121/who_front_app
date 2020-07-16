@@ -1,7 +1,7 @@
 <template>
-  <div class = "notice">
-  <div class = "noticetable">
-      <v-simple-table height="100%">
+  <div class = "noticeboard">
+    <div class = "noticetable">
+      <v-simple-table>
         <template v-slot:default>
           <thead>
             <tr>
@@ -11,9 +11,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in paginatedData" :key="item.name" @click="onClickName(noticename)">
-                <td>{{ item.name }}</td>
-                <td>{{ item.title }}</td>
+            <tr v-for="(item,index) in paginatedData" :key="index">
+                <td>{{ item.username }}</td>
+                <td><router-link v-bind:to="`/noticeboard/noticecontent/${realpage+index}`">{{item.name}}</router-link></td>
                 <td>{{ item.time }}</td>
             </tr>
           </tbody>
@@ -25,50 +25,65 @@
         <v-pagination :length="pageCount" v-model="pageNum" :total-visible="10"></v-pagination>
       </div>
     </div>
-    
+    <div class = "writebtn">
+      <v-btn depressed small color="primary" @click="RouterName(writeform)">글쓰기</v-btn>
+    </div>
   </div>
 </template>
 
 <script>
-import noticedata from "../../assets/noticedata.json"
-
- 
+import { mapState , mapActions } from 'vuex'
+// import EventBus from "../../EventBus"
 
 export default {
     
     name: 'NoticeBoard',
+    created() {
+    this.init();
+    },
     data : function() {
       return{
-        noticedata: noticedata,
         pageNum : 1,
         pageSize: 10,
-        noticename : '/noticeboard/noticecontent'
+        writeform: '/noticeboard/writenotice',
       }
     },
     methods: {
-      onClickName(targetName){
-        this.$router.push(targetName);
+      ...mapActions({
+        init: 'listInit'
+      }),
+      RouterName(writeform){
+        this.$router.push(writeform);
       }
-  },
+    },
   computed: {
+    ...mapState({
+      datalist: 'list'
+    }),
+    realNum(){
+      let num = this.pageNum;
+      num = num - 1;
+      return num;
+    },
+    realpage(){
+      let listNum = ((this.pageNum-1)*this.pageSize);
+      return listNum;
+    },
     pageCount () {
-      let listLeng = this.noticedata.length,
+      let listLeng = this.datalist.length,
           listSize = this.pageSize,
           page = Math.floor(listLeng / listSize);
-      // if (listLeng % listSize > 0) page += 1;
-      
+         if (listLeng % listSize > 0) page += 1;
       return page;
     },
     paginatedData () {
-      const start = this.pageNum * this.pageSize,
+      const start = this.realNum * this.pageSize,
             end = start + this.pageSize;
-      return this.noticedata.slice(start, end);
-    }
-  }
-
-        
-        
-
+      return this.datalist.slice(start, end);
+    },
+    
+  },
+  
 
 
 }
@@ -79,17 +94,29 @@ export default {
 </script>
 
 <style>
-.noticetable{
-  position: absolute;
+.noticeboard{
   left: 12%;
   width: 80%;
-  height: 70%;
-  margin-bottom: 20px;
+  height: 90%;
+  margin-top: 20px;
+  margin-left:150px;
+}
+.noticetable{
+  width: 100%;
 }
 .paging{
   position: absolute;
-  left: 30%;
-  height: 15%;
-  bottom: 10%;
+  bottom:0%;
+  left: 50%; 
+  transform: translateX(-50%);
+}
+
+.v-application a{
+  color:black !important;
+  text-decoration:none;
+}
+.writebtn{
+  position: absolute;
+  bottom:5%;
 }
 </style>

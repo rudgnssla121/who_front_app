@@ -1,30 +1,22 @@
 <template>
   <div class = "body">
-    <div class="header">
-      <app-header></app-header>
-    </div>
      <div class = "mid_content">
        <app-mid></app-mid>
      </div>
-    <div class="footer">
-      <app-footer></app-footer>
-    </div>
+    
     
   </div>
 </template>
 
 <script>
-import AppHeader from "./mainpage/Header.vue"
 import AppMid from "./mainpage/Content.vue"
-import IntroWho from "./mainpage/Footer.vue"
+
 
 
   export default {
     name: 'MainPage',
     components:{
-      'app-header' : AppHeader,
       'app-mid' : AppMid,
-      'app-footer' : IntroWho,
       
     },
     data: () => ({

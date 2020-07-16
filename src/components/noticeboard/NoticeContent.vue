@@ -1,53 +1,55 @@
 <template>
   <div class = "noticecontent">
-    <div class = "contentheader">
-        <content-header></content-header>
-    </div>
+    
     <div class = "contentform">
         <div class = "contentname">
             <h1>  공지사항  </h1>
             <div class = "contenttime">
-                <p>시간 : {{noticedata.time}}</p>
+                <p>시간 : {{list[index].time}}</p>
             </div>
             <hr>  
             <div class = "name">
-                <h2>제목 : {{noticedata.name}}</h2>
+                <h2>제목 : {{list[index].name}}</h2>
             </div>
         </div>
         <div class = "contenttitle">
-            <p>{{noticedata.title}}</p>
+            <p>{{list[index].content}}</p>
         </div>
     </div>
-    <div calss = "contentfooter">
-        <content-footer></content-footer>
-    </div>
+    
   </div>
 </template>
 
 <script>
-import ContentHeader from "../mainpage/Header.vue"
-import ContentFooter from "../mainpage/Footer.vue"
+import {mapState} from 'vuex'
 
 export default {
+
+    name: 'noicecontent',
     data : function() {
         return{
-            noticedata : []
+            index: 0,
+            datalsit:[]
         }
     },
-    components:{
-        'content-header' : ContentHeader,
-        'content-footer' : ContentFooter
+    computed:{
+        ...mapState({
+            list: 'list'
+        }),
+        
     },
     created() {
-  // 컴포넌트 생성시 데이터를 패치한다
-        this.noticedata = this.$route.params.noticedata;
+        this.index = this.$route.params.index;
+        this.$store.dispatch('listInit');
     },
     
-  
-
 }
 
 </script>
 
 <style>
+.contentform{
+    margin:50px;
+    margin-top:100px;
+}
 </style>

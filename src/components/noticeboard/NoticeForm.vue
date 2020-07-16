@@ -1,41 +1,27 @@
 <template>
   <div class = "notice">
-    <div class = "notice_header">
-      <notice-header></notice-header>
-    </div>
-    <div class="notice_body">
-      <notice-board></notice-board>
-    </div>
-    <div class="notice_footer">
-     <notice-footer></notice-footer>
-    </div>
+    <notice-board></notice-board>
   </div>
 </template>
 
 <script>
-import NoticeHeader from "../mainpage/Header.vue"
 import NoticeBoard from "./NoticeBoard.vue"
-import NoticeFooter from "../mainpage/Footer.vue"
+
 export default {
     components: {
-        'notice-header' : NoticeHeader,
         'notice-board': NoticeBoard,
-        'notice-footer' : NoticeFooter
     }
 }
 </script>
 
 <style scoped>
 .notice{
-  position: absolute;
-  height: 120%;
+  position: relative;
   width: 100%;
+  height: 75%;
+  top:10%;
+  margin:15px;
 }
-.notice_body{
-  position: absolute;
-  width: 100%;
-  top:15%;
-  height: 65%;
-}
+
 
 </style>
